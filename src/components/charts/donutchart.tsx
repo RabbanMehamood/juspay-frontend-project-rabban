@@ -18,7 +18,7 @@ export default function DonutChart() {
           outerRadius: 72,
           paddingAngle: 3,
           cornerRadius: 66,
-          cx: 160,
+          cx: 130,
         },
       ]}
       slotProps={{
