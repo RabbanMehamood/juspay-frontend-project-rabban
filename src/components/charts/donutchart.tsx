@@ -24,7 +24,7 @@ export default function DonutChart() {
       slotProps={{
         legend: {
           position: { vertical: "bottom", horizontal: "center" },
-        //   direction: 'row',
+          direction: "row" as any,
         },
       }}
     >
