@@ -128,13 +128,7 @@ export default function Orders() {
         </Typography>
       </Box>
 
-      <Box
-        sx={(theme) => ({
-          mt: 4,
-          px: 1.25,
-          py: 1,
-        })}
-      >
+      <Box>
         <Stack direction="row" alignItems="center" spacing={1} sx={{ px: 1 }}>
           <Stack direction="row" spacing={0.5}>
             <IconButton size="small">
@@ -205,7 +199,7 @@ export default function Orders() {
             <col style={{ width: 200 }} />
             <col style={{ width: 200 }} />
             <col style={{ width: 140 }} />
-            <col style={{ width: 150, alignItems:'start' }} />
+            <col style={{ width: 150, alignItems: "start" }} />
           </colgroup>
 
           <TableHead>

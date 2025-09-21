@@ -1,6 +1,4 @@
-import * as React from "react";
 import { LineChart } from "@mui/x-charts/LineChart";
-import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 
 export default function Linegraph() {

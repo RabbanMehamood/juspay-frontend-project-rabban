@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Drawer,
   List,
@@ -13,9 +13,6 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
 import DashboardIcon from "@mui/icons-material/Dashboard";
 import ListAltIcon from "@mui/icons-material/ListAlt";
-import SettingsIcon from "@mui/icons-material/Settings";
-import FolderIcon from "@mui/icons-material/Folder";
-import PagesIcon from "@mui/icons-material/Pages";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import BusinessIcon from "@mui/icons-material/Business";
 import ArticleIcon from "@mui/icons-material/Article";
@@ -146,11 +143,7 @@ export default function LeftSidebar({ isOpen, width }: LeftSidebarProps) {
                 >
                   <ArrowForwardIosSharpIcon sx={{ fontSize: 14 }} />
                 </div>
-                {isOpen && (
-                  <ListItemText
-                    primary={section.title}
-                  />
-                )}
+                {isOpen && <ListItemText primary={section.title} />}
               </ListItemButton>
               {section.children.length > 0 && (
                 <Collapse in={isExpanded} timeout="auto" unmountOnExit>

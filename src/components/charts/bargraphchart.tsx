@@ -1,8 +1,7 @@
-import * as React from "react";
 import Stack from "@mui/material/Stack";
 import Box from "@mui/material/Box";
 import { BarChart } from "@mui/x-charts/BarChart";
-import type { BarItemIdentifier, ChartsAxisData } from "@mui/x-charts/models";
+
 
 export default function Bargraph() {
   return (

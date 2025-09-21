@@ -1,4 +1,3 @@
-import React from "react";
 import { useTheme } from "@mui/material/styles";
 import Bargraph from "../components/charts/bargraphchart";
 import Linegraph from "../components/charts/linchart";

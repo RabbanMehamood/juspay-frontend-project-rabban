@@ -1,5 +1,3 @@
-// src/components/layout/Topbar.tsx
-import React from "react";
 import {
   AppBar,
   Toolbar,

@@ -1,5 +1,5 @@
 // src/App.tsx
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import LeftSidebar from "./components/layout/sidebars/LeftSidebar";
 import RightSidebar from "./components/layout/sidebars/RightSidebar";
 import Topbar from "./components/layout/Topbar";
