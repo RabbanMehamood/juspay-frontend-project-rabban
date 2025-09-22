@@ -1,5 +1,15 @@
-## Project Name
-Live Demo: https://juspay-frontend-project-rabban-ol4i.vercel.app/
+# Modern Dashboard Web App Created Using React + TypeScript + Vite + MUI
+
+## Live Demo (Hosted Live Website Link): 
+- https://juspay-frontend-project-rabban-ol4i.vercel.app/
+
+![Dashboard Dark](src/assets/dashboard.png)
+![Orders Table Light](src/assets/dashboard-table.png)
+
+![Dashboard Dark](src/assets/dashboard_darktheme.png)
+![Orders Table Light](src/assets/dashboard_table_dark.png)
+
+
 
 ## Tech Stack
 **React - TypeScript - MUI - MUI X Charts - Tailwind** 
@@ -23,12 +33,6 @@ npm run dev   # or: npm start
 ```bash
 npm run build
 npm run preview
-```
-
-## Hosted Live Website Link: 
-
-```tex
-https://juspay-frontend-project-rabban-ol4i.vercel.app/
 ```
 
 ## Deployment
