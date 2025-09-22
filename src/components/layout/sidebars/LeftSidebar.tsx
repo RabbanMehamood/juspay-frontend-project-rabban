@@ -11,12 +11,21 @@ import {
 import { NavLink } from "react-router-dom";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import ListAltIcon from "@mui/icons-material/ListAlt";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import BusinessIcon from "@mui/icons-material/Business";
 import ArticleIcon from "@mui/icons-material/Article";
 import ShareIcon from "@mui/icons-material/Share";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import Brightness1Icon from "@mui/icons-material/Brightness1";
+import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import FolderOpenOutlinedIcon from "@mui/icons-material/FolderOpenOutlined";
+import AutoStoriesTwoToneIcon from "@mui/icons-material/AutoStoriesTwoTone";
+import ReviewsOutlinedIcon from "@mui/icons-material/ReviewsOutlined";
+import AccountTreeIcon from "@mui/icons-material/AccountTree";
+import CampaignIcon from "@mui/icons-material/Campaign";
+import DocumentScannerIcon from "@mui/icons-material/DocumentScanner";
+import PeopleOutlineIcon from "@mui/icons-material/PeopleOutline";
+import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined";
 
 interface LeftSidebarProps {
   isOpen: boolean;
@@ -27,28 +36,36 @@ const sidebarItems = [
   {
     title: "Favorites",
     children: [
-      { text: "Overview", path: "/overview", icon: <DashboardIcon /> },
-      { text: "Projects", path: "/projects", icon: <ListAltIcon /> },
+      {
+        text: "Overview",
+        path: "/overview",
+        icon: <Brightness1Icon sx={{ fontSize: 8 }} color="disabled" />,
+      },
+      {
+        text: "Projects",
+        path: "/projects",
+        icon: <Brightness1Icon sx={{ fontSize: 8 }} color="disabled" />,
+      },
     ],
   },
   {
     title: "Dashboards",
     children: [
-      { text: "eCommerce", path: "/", icon: <DashboardIcon /> },
+      { text: "eCommerce", path: "/", icon: <PieChartIcon /> },
       {
         text: "Order List",
         path: "/orders",
-        icon: <DashboardIcon />,
+        icon: <LocalMallOutlinedIcon />,
       },
       {
         text: "Projects",
         path: "/dashboards/u-projects",
-        icon: <DashboardIcon />,
+        icon: <FolderOpenOutlinedIcon />,
       },
       {
         text: "Online Courses",
         path: "/dashboards/online-courses",
-        icon: <DashboardIcon />,
+        icon: <AutoStoriesTwoToneIcon />,
       },
     ],
   },
@@ -58,13 +75,29 @@ const sidebarItems = [
       {
         text: "User Profile",
         path: "/pages/user-profile",
-        icon: <AccountCircleIcon />,
+        icon: <AssignmentIndOutlinedIcon />,
       },
-      { text: "Overview", path: "/pages/overview", icon: <DashboardIcon /> },
-      { text: "Projects", path: "/pages/projects", icon: <ListAltIcon /> },
-      { text: "Campaigns", path: "/pages/campaigns", icon: <DashboardIcon /> },
-      { text: "Documents", path: "/pages/documents", icon: <DashboardIcon /> },
-      { text: "Followers", path: "/pages/followers", icon: <DashboardIcon /> },
+      {
+        text: "Overview",
+        path: "/pages/overview",
+        icon: <ReviewsOutlinedIcon />,
+      },
+      { text: "Projects", path: "/pages/projects", icon: <AccountTreeIcon /> },
+      {
+        text: "Campaigns",
+        path: "/pages/campaigns",
+        icon: <CampaignIcon />,
+      },
+      {
+        text: "Documents",
+        path: "/pages/documents",
+        icon: <DocumentScannerIcon />,
+      },
+      {
+        text: "Followers",
+        path: "/pages/followers",
+        icon: <PeopleOutlineIcon />,
+      },
     ],
   },
   {
@@ -90,9 +123,7 @@ const sidebarItems = [
 ];
 
 export default function LeftSidebar({ isOpen, width }: LeftSidebarProps) {
-  // Initialize all sections as open by default
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>(
-    // Method 1: Using Object.fromEntries (Clean and dynamic)
     Object.fromEntries(sidebarItems.map((section) => [section.title, true]))
   );
 
@@ -141,9 +172,16 @@ export default function LeftSidebar({ isOpen, width }: LeftSidebarProps) {
                     transform: isExpanded ? "rotate(90deg)" : "rotate(0deg)",
                   }}
                 >
-                  <ArrowForwardIosSharpIcon sx={{ fontSize: 14 }} />
+                  <ArrowForwardIosSharpIcon
+                    sx={{ fontSize: 14, color: "grey" }}
+                  />
                 </div>
-                {isOpen && <ListItemText primary={section.title} />}
+                {isOpen && (
+                  <ListItemText
+                    primary={section.title}
+                    sx={{ color: "grey" }}
+                  />
+                )}
               </ListItemButton>
               {section.children.length > 0 && (
                 <Collapse in={isExpanded} timeout="auto" unmountOnExit>
@@ -161,6 +199,9 @@ export default function LeftSidebar({ isOpen, width }: LeftSidebarProps) {
                               "&.Mui-selected": {
                                 backgroundColor: "rgba(82, 82, 82, 0.12)",
                                 color: "#1976d2",
+                                margin: "8px",
+                                borderRadius: "6px",
+                                borderLeft: "6px solid black",
                               },
                               "&.Mui-selected:hover": {
                                 backgroundColor: "rgba(172, 173, 173, 0.16)",

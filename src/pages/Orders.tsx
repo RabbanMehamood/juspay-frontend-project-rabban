@@ -142,7 +142,7 @@ export default function Orders() {
             </IconButton>
           </Stack>
 
-          <Box sx={{ flex: 1 }} />
+          <Box sx={{ flex: 1, marginBottom: "10px" }} />
 
           <Box
             sx={(theme) => ({

@@ -1,4 +1,3 @@
-// src/App.tsx
 import { useState, useEffect } from "react";
 import LeftSidebar from "./components/layout/sidebars/LeftSidebar";
 import RightSidebar from "./components/layout/sidebars/RightSidebar";
@@ -11,16 +10,26 @@ interface AppProps {
 }
 
 export default function App({ mode, toggleTheme }: AppProps) {
-  const [isLeftOpen, setLeftOpen] = useState(true);
-  const [isRightOpen, setRightOpen] = useState(true);
+  const isMobile = () =>
+    typeof window !== "undefined" ? window.innerWidth < 768 : false;
 
-  // Sync Tailwind dark mode with MUI theme
+  const [isLeftOpen, setLeftOpen] = useState<boolean>(() => !isMobile());
+  const [isRightOpen, setRightOpen] = useState<boolean>(() => !isMobile());
+
   useEffect(() => {
     if (mode === "dark") {
       document.documentElement.classList.add("dark");
     } else {
       document.documentElement.classList.remove("dark");
     }
+
+    const onResize = () => {
+      const mobile = window.innerWidth < 768;
+      setLeftOpen((prev) => (mobile ? false : prev));
+      setRightOpen((prev) => (mobile ? false : prev));
+    };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
   }, [mode]);
 
   const leftSidebarWidth = isLeftOpen ? 240 : 0;
