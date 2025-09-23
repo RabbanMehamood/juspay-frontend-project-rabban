@@ -37,7 +37,11 @@ export default function App({ mode, toggleTheme }: AppProps) {
 
   return (
     <div className="flex h-screen">
-      <LeftSidebar isOpen={isLeftOpen} width={leftSidebarWidth} />
+      <LeftSidebar
+        isOpen={isLeftOpen}
+        width={leftSidebarWidth}
+        onClose={() => setLeftOpen(false)}
+      />
 
       <div
         className="flex flex-col transition-all duration-300 overflow-hidden"
@@ -59,7 +63,11 @@ export default function App({ mode, toggleTheme }: AppProps) {
         </main>
       </div>
 
-      <RightSidebar isOpen={isRightOpen} width={rightSidebarWidth} />
+      <RightSidebar
+        isOpen={isRightOpen}
+        width={rightSidebarWidth}
+        onClose={() => setRightOpen(false)}
+      />
     </div>
   );
 }

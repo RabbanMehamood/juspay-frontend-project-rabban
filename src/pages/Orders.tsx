@@ -6,7 +6,6 @@ import {
   Typography,
   IconButton,
   InputBase,
-  Divider,
   Table,
   TableBody,
   TableCell,
@@ -122,14 +121,19 @@ export default function Orders() {
 
   return (
     <Paper sx={{ marginLeft: "10px", overflow: "hidden" }} elevation={0}>
-      <Box sx={{ px: 2.25, pt: 2.25 }}>
+      <Box sx={{ px: 2.25, pt: 2.25, marginBottom: "20px" }}>
         <Typography variant="subtitle1" sx={{ fontWeight: 700 }}>
           Order List
         </Typography>
       </Box>
 
       <Box>
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ px: 1 }}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          spacing={1}
+          sx={{ px: 1, marginBottom: "10px" }}
+        >
           <Stack direction="row" spacing={0.5}>
             <IconButton size="small">
               <AddRoundedIcon />
@@ -148,6 +152,7 @@ export default function Orders() {
             sx={(theme) => ({
               display: "flex",
               alignItems: "center",
+
               gap: 1,
               px: 1.25,
               py: 0.5,
@@ -174,20 +179,18 @@ export default function Orders() {
         </Stack>
       </Box>
 
-      <Divider />
-
       <TableContainer>
         <Table
           size="medium"
           sx={{
             tableLayout: "fixed",
-            "& th, & td": { borderBottom: "1px solid", borderColor: "divider" },
+            "& th, & td": { borderBottom: "1px solid", borderColor: "divider", },
             "& thead th": {
-              fontSize: 12,
+              fontSize: 10,
               color: "text.secondary",
-              fontWeight: 600,
+              fontWeight: 400,
             },
-            "& tbody td": { fontSize: 14 },
+            "& tbody td": { fontSize: 16,color:"text.primary" },
             "& tbody tr:hover": { backgroundColor: "action.hover" },
             "& tbody tr.Mui-selected": { backgroundColor: "action.selected" },
           }}
@@ -207,12 +210,12 @@ export default function Orders() {
               <TableCell padding="checkbox">
                 <Checkbox size="small" />
               </TableCell>
-              <TableCell>Order ID</TableCell>
-              <TableCell>User</TableCell>
-              <TableCell>Project</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>Date</TableCell>
-              <TableCell align="right">Status</TableCell>
+              <TableCell >Order ID</TableCell>
+              <TableCell >User</TableCell>
+              <TableCell >Project</TableCell>
+              <TableCell >Address</TableCell>
+              <TableCell >Date</TableCell>
+              <TableCell >Status</TableCell>
             </TableRow>
           </TableHead>
 
@@ -223,7 +226,7 @@ export default function Orders() {
                   <Checkbox size="small" checked={r.checked} />
                 </TableCell>
                 <TableCell>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.primary">
                     {r.id}
                   </Typography>
                 </TableCell>
@@ -238,14 +241,14 @@ export default function Orders() {
                   </Stack>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.primary">
                     {r.project}
                   </Typography>
                 </TableCell>
                 <TableCell>
                   <Typography
                     variant="body2"
-                    color="text.secondary"
+                    color="text.primary"
                     noWrap
                     title={r.address}
                   >
@@ -258,7 +261,7 @@ export default function Orders() {
                       sx={{ color: "text.disabled" }}
                       fontSize="small"
                     />
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.primary">
                       {r.date}
                     </Typography>
                   </Stack>
@@ -278,7 +281,7 @@ export default function Orders() {
                         bgcolor: r.status.color,
                       }}
                     />
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.primary">
                       {r.status.label}
                     </Typography>
                     <IconButton size="small">

@@ -53,7 +53,7 @@ export default function Topbar({
           justifyItems: "end",
         }}
       >
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1, }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           <Tooltip title="Menu">
             <IconButton
               size="small"
@@ -87,13 +87,13 @@ export default function Topbar({
           </Box>
         </Box>
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 , }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
           <Box
             sx={(theme) => ({
+              display: { xs: "none", md: "flex" },
               justifySelf: "center",
               width: 280,
               maxWidth: "42vw",
-              display: "flex",
               alignItems: "center",
               gap: 1,
               px: 1.25,
@@ -155,13 +155,25 @@ export default function Topbar({
           </Tooltip>
 
           <Tooltip title="History">
-            <IconButton size="small" sx={{ color: "text.secondary" }}>
+            <IconButton
+              size="small"
+              sx={{
+                color: "text.secondary",
+                display: { xs: "none", md: "flex" },
+              }}
+            >
               <HistoryRoundedIcon fontSize="small" />
             </IconButton>
           </Tooltip>
 
           <Tooltip title="Notifications">
-            <IconButton size="small" sx={{ color: "text.secondary" }}>
+            <IconButton
+              size="small"
+              sx={{
+                color: "text.secondary",
+                display: { xs: "none", md: "flex" },
+              }}
+            >
               <NotificationsNoneRoundedIcon fontSize="small" />
             </IconButton>
           </Tooltip>
@@ -170,7 +182,9 @@ export default function Topbar({
             <IconButton
               size="small"
               onClick={onToggleRight}
-              sx={{ color: "text.secondary" }}
+              sx={{
+                color: "text.secondary",
+              }}
             >
               <ViewSidebarOutlinedIcon fontSize="small" />
             </IconButton>

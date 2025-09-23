@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
-
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import BusinessIcon from "@mui/icons-material/Business";
 import ArticleIcon from "@mui/icons-material/Article";
@@ -30,6 +30,7 @@ import AssignmentIndOutlinedIcon from "@mui/icons-material/AssignmentIndOutlined
 interface LeftSidebarProps {
   isOpen: boolean;
   width: number;
+  onClose: () => void;
 }
 
 const sidebarItems = [
@@ -122,7 +123,11 @@ const sidebarItems = [
   },
 ];
 
-export default function LeftSidebar({ isOpen, width }: LeftSidebarProps) {
+export default function LeftSidebar({
+  isOpen,
+  width,
+  onClose,
+}: LeftSidebarProps) {
   const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>(
     Object.fromEntries(sidebarItems.map((section) => [section.title, true]))
   );
@@ -144,15 +149,18 @@ export default function LeftSidebar({ isOpen, width }: LeftSidebarProps) {
         },
       }}
     >
-      <div className="flex items-center justify-left p-4">
-        <Avatar
-          alt="User Name"
-          src="https://i.pravatar.cc/40?img=10"
-          sx={{ width: 40, height: 40, marginBottom: 1 }}
-        />
-        {isOpen && (
-          <span className="text-sm ml-4 mb-1 font-semibold">John Doe</span>
-        )}
+      <div className="flex items-center justify-between p-4">
+        <div className="flex items-center">
+          <Avatar
+            alt="User Name"
+            src="https://i.pravatar.cc/40?img=10"
+            sx={{ width: 40, height: 40, marginBottom: 1 }}
+          />
+          {isOpen && (
+            <span className="text-sm ml-4 mb-1 font-semibold">John Doe</span>
+          )}
+        </div>
+        <CloseOutlinedIcon onClick={onClose} style={{ cursor: "pointer" }} />
       </div>
 
       <List>

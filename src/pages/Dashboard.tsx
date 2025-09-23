@@ -11,6 +11,7 @@ export default function Dashboard() {
     boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
     borderRadius: "8px",
     padding: "16px",
+    overflow: "scroll",
   };
 
   const textStyle = {
@@ -108,9 +109,7 @@ export default function Dashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-[80%_20%] gap-4 mb-4">
         <div style={cardStyle}>
-          <p
-            style={{ fontWeight: "bold", marginBottom: "35px", ...textStyle }}
-          >
+          <p style={{ fontWeight: "bold", marginBottom: "35px", ...textStyle }}>
             Revenue
           </p>
           <Linegraph />

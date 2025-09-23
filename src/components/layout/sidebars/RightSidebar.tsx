@@ -10,10 +10,15 @@ import {
   ListItemText,
   Divider,
 } from "@mui/material";
+import BugReportOutlinedIcon from "@mui/icons-material/BugReportOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
+import SubscriptionsOutlinedIcon from "@mui/icons-material/SubscriptionsOutlined";
+import CloseOutlinedIcon from "@mui/icons-material/CloseOutlined";
 
 interface RightSidebarProps {
   isOpen: boolean;
   width: number;
+  onClose: () => void;
 }
 
 const notifications = [
@@ -21,25 +26,36 @@ const notifications = [
     id: "n1",
     title: "You have a bug that needs...",
     time: "Just now",
-    initials: "BG",
+    icon: (
+      <BugReportOutlinedIcon fontSize="large" style={{ borderRadius: "6px" }} />
+    ),
   },
   {
     id: "n2",
     title: "New user registered",
     time: "59 minutes ago",
-    initials: "NR",
+    icon: (
+      <PersonOutlinedIcon fontSize="large" style={{ borderRadius: "6px" }} />
+    ),
   },
   {
     id: "n3",
     title: "You have a bug that needs...",
     time: "12 hours ago",
-    initials: "BG",
+    icon: (
+      <BugReportOutlinedIcon fontSize="large" style={{ borderRadius: "6px" }} />
+    ),
   },
   {
     id: "n4",
     title: "Andi Lane subscribed to you",
     time: "Today, 11:59 AM",
-    initials: "AL",
+    icon: (
+      <SubscriptionsOutlinedIcon
+        fontSize="large"
+        style={{ borderRadius: "6px" }}
+      />
+    ),
   },
 ];
 
@@ -111,7 +127,6 @@ function Section({
   return (
     <Box
       sx={{
-        bgcolor: "background.default",
         p: 1.5,
       }}
     >
@@ -126,7 +141,11 @@ function Section({
   );
 }
 
-export default function RightSidebar({ isOpen, width }: RightSidebarProps) {
+export default function RightSidebar({
+  isOpen,
+  width,
+  onClose,
+}: RightSidebarProps) {
   return (
     <Drawer
       variant="permanent"
@@ -155,9 +174,11 @@ export default function RightSidebar({ isOpen, width }: RightSidebarProps) {
           gap: 2,
         }}
       >
+        <CloseOutlinedIcon onClick={onClose} style={{ cursor: "pointer" }} />
+
         <Section title="Notifications">
           <List dense disablePadding>
-            {notifications.map((n, idx) => (
+            {notifications.map((n) => (
               <React.Fragment key={n.id}>
                 <ListItem
                   sx={{
@@ -167,7 +188,8 @@ export default function RightSidebar({ isOpen, width }: RightSidebarProps) {
                   }}
                 >
                   <ListItemAvatar>
-                    <Avatar sx={{ width: 28, height: 28 }}>{n.initials}</Avatar>
+                    {/* <Avatar sx={{ width: 28, height: 28 }}>{n.icon}</Avatar> */}
+                    {n.icon}
                   </ListItemAvatar>
                   <ListItemText
                     primaryTypographyProps={{ variant: "body2", noWrap: true }}
@@ -179,9 +201,6 @@ export default function RightSidebar({ isOpen, width }: RightSidebarProps) {
                     secondary={n.time}
                   />
                 </ListItem>
-                {idx < notifications.length - 1 && (
-                  <Divider variant="inset" component="li" sx={{ ml: 6 }} />
-                )}
               </React.Fragment>
             ))}
           </List>
@@ -239,7 +258,18 @@ export default function RightSidebar({ isOpen, width }: RightSidebarProps) {
                   />
                 </ListItem>
                 {idx < contacts.length - 1 && (
-                  <Divider variant="inset" component="li" sx={{ ml: 6 }} />
+                  <Divider
+                    orientation="vertical"
+                    flexItem
+                    sx={{
+                      mx: 1,
+                      borderRightWidth: 2,
+                      borderColor: "divider",
+                      height: "100%",
+                      alignSelf: "stretch",
+                      color: "black"!,
+                    }}
+                  />
                 )}
               </React.Fragment>
             ))}
